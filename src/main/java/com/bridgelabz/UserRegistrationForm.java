@@ -1,4 +1,6 @@
 package com.bridgelabz;
+import jdk.jfr.StackTrace;
+
 import java.util.regex.*;
 
 public class UserRegistrationForm {
@@ -44,7 +46,7 @@ public class UserRegistrationForm {
 
     public static boolean isValidEmail(String name) {
 
-        Pattern p = Pattern.compile("\\B[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
+        Pattern p = Pattern.compile("\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
         Matcher m = p.matcher("thegauriparhad@gmail.com");
 
     }
@@ -111,8 +113,7 @@ public class UserRegistrationForm {
         System.out.println(isValidlastUsername(str3));
 
         //checking mail-id:
-        String email = "thegauriparhad@gmail.com";
-        System.out.println(isValidEmail(email));
+
 
         // //Checking the valid 10digit mobile number/
             String ph_no="91 9648874225"
@@ -145,7 +146,7 @@ public class UserRegistrationForm {
             System.out.println(output);
     }
 
-    //junit happyand sad test cases:
+    //junit happy and sad test cases:
     @Test
     public void happy_sad_test(){
         String fname = "INDIA";
@@ -167,6 +168,18 @@ public class UserRegistrationForm {
 
             UserRegistrationForm obj = new UserRegistrationForm();
             obj.happy_sad_Test();
+        }
+
+        //Junit parameterised test cases.
+        @Test
+        public void parameterised_email_entry_test(String name){
+            Pattern p = Pattern.compile("\\b[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
+            Matcher m = p.matcher("thegauriparhad@gmail.com");
+
+        }
+        public static void main(String[] args) {
+            String email = "thegauriparhad@gmail.com";
+            System.out.println(isValidEmail(email));
         }
 
     }
